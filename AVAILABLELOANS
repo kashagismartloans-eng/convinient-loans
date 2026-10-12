@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KASHAGI SMART LOANS</title>
+
+  <meta name="description"
+        content="Kashagi Smart Loans - Loan information and application portal">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #000000, #202020);
+      padding: 25px 15px;
+      text-align: center;
+      border-bottom: 4px solid #ffd000;
+    }
+
+    header h1 {
+      color: #ffd000;
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #dddddd;
+    }
+
+    /* CONTAINER */
+    .container {
+      width: 94%;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    /* NOTICE */
+    .notice {
+      margin: 20px 0;
+      padding: 18px;
+      background: #171717;
+      border-left: 5px solid #ffd000;
+      border-radius: 8px;
+      color: #dddddd;
+    }
+
+    .notice strong {
+      color: #ffd000;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    .hero h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #bbbbbb;
+    }
+
+    /* BUTTON */
+    .main-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 25px;
+      background: #ffd000;
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    /* SECTION */
+    .section-title {
+      color: #ffd000;
+      font-size: 25px;
+      margin: 30px 0 15px;
+    }
+
+    /* LOANS */
+    .loan-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .loan-card {
+      background: #111111;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      padding: 20px;
+      transition: 0.2s;
+    }
+
+    .loan-card:hover {
+      border-color: #ffd000;
+      transform: translateY(-3px);
+    }
+
+    .loan-card h3 {
+      color: #ffd000;
+      margin-bottom: 8px;
+    }
+
+    .amount {
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    /* APPLICATION */
+    .application {
+      background: #111111;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 40px 0;
+    }
+
+    .application h2 {
+      color: #ffd000;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #555555;
+      border-radius: 7px;
+      background: #222222;
+      color: #ffffff;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #ffd000;
+      color: #000000;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: #ffe066;
+    }
+
+    /* RESULT */
+    #result {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #142914;
+      border: 1px solid #4caf50;
+    }
+
+    #result strong {
+      color: #66dd66;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      text-align: center;
+      background: #111111;
+      border-top: 1px solid #333333;
+      border-bottom: 1px solid #333333;
+      padding: 25px 10px;
+      margin-top: 30px;
+    }
+
+    .contact-box h2 {
+      color: #ffd000;
+      margin-bottom: 12px;
+    }
+
+    .contact-box a {
+      color: #ffd000;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #000000;
+      text-align: center;
+      padding: 30px 15px;
+      color: #999999;
+      margin-top: 30px;
+    }
+
+    footer strong {
+      color: #ffd000;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      .hero h2 {
+        font-size: 25px;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+  <div class="container">
+
+    <h1>KASHAGI SMART LOANS</h1>
+
+    <p>
+      Loan Information & Application Portal
+    </p>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <!-- NOTICE -->
+
+  <div class="notice">
+
+    <strong>Important:</strong>
+
+    Loan applications are subject to eligibility,
+    verification and the lender's approval process.
+    Submitting an application does not guarantee approval
+    or loan disbursement.
+
+  </div>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h2>Flexible Loan Solutions</h2>
+
+    <p>
+      Explore available loan categories and submit
+      an application for consideration.
+    </p>
+
+    <a href="#application" class="main-button">
+      APPLY NOW
+    </a>
+
+  </section>
+
+
+  <!-- PERSONAL LOANS -->
+
+  <h2 class="section-title">
+    Personal Loans
+  </h2>
+
+  <div class="loan-grid">
+
+    <div class="loan-card">
+      <h3>Starter Loan</h3>
+      <div class="amount">
+        US$10 – US$200
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Standard Loan</h3>
+      <div class="amount">
+        US$201 – US$500
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Medium Loan</h3>
+      <div class="amount">
+        US$501 – US$1,000
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Large Loan</h3>
+      <div class="amount">
+        US$1,001 – US$2,500
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Business Loan</h3>
+      <div class="amount">
+        US$2,501 – US$5,000+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- BUSINESS LOANS -->
+
+  <h2 class="section-title">
+    Business Loans
+  </h2>
+
+  <div class="loan-grid">
+
+    <div class="loan-card">
+      <h3>Micro Business</h3>
+      <div class="amount">
+        US$100 – US$500
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Starter Business</h3>
+      <div class="amount">
+        US$501 – US$1,000
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Small Business</h3>
+      <div class="amount">
+        US$1,001 – US$5,000
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Growing Business</h3>
+      <div class="amount">
+        US$5,001 – US$10,000
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Medium Business</h3>
+      <div class="amount">
+        US$10,001 – US$50,000
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <h3>Large Business</h3>
+      <div class="amount">
+        US$50,001+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- APPLICATION -->
+
+  <section class="application" id="application">
+
+    <h2>
+      Loan Application
+    </h2>
+
+    <form id="loanForm">
+
+      <label for="name">
+        Full Name
+      </label>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your full name"
+        required
+      >
+
+
+      <label for="email">
+        Email Address
+      </label>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      >
+
+
+      <label for="loanType">
+        Loan Category
+      </label>
+
+      <select id="loanType" required>
+
+        <option value="">
+          Select loan category
+        </option>
+
+        <option>
+          Starter Loan
+        </option>
+
+        <option>
+          Standard Loan
+        </option>
+
+        <option>
+          Medium Loan
+        </option>
+
+        <option>
+          Large Loan
+        </option>
+
+        <option>
+          Business Loan
+        </option>
+
+        <option>
+          Micro Business
+        </option>
+
+        <option>
+          Starter Business
+        </option>
+
+        <option>
+          Small Business
+        </option>
+
+        <option>
+          Growing Business
+        </option>
+
+        <option>
+          Medium Business
+        </option>
+
+        <option>
+          Large Business
+        </option>
+
+      </select>
+
+
+      <label for="amount">
+        Requested Amount (USD)
+      </label>
+
+      <input
+        type="number"
+        id="amount"
+        min="10"
+        placeholder="Example: 500"
+        required
+      >
+
+
+      <label for="purpose">
+        Purpose of Loan
+      </label>
+
+      <textarea
+        id="purpose"
+        placeholder="Briefly describe the purpose of the loan"
+        required
+      ></textarea>
+
+
+      <button
+        type="submit"
+        class="submit-button"
+      >
+        SUBMIT APPLICATION
+      </button>
+
+    </form>
+
+
+    <div id="result">
+
+      <strong>
+        Application received.
+      </strong>
+
+      <p>
+        Your application has been recorded in this
+        demonstration page. No loan has been approved
+        or disbursed.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact-box">
+
+    <h2>
+      Contact
+    </h2>
+
+    <p>
+      📞 0707956918
+    </p>
+
+    <p>
+      📧 jayraj@gmail.com
+    </p>
+
+    <p>
+      📍 Zimbabwe
+    </p>
+
+    <p>
+      🕐 Service information: 24 hours
+    </p>
+
+    <p style="margin-top:15px;">
+
+      <a
+        href="https://t.me/cleansheetloans"
+        target="_blank"
+      >
+        💬 Contact via Telegram
+      </a>
+
+    </p>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    <strong>KASHAGI SMART LOANS</strong>
+  </p>
+
+  <p>
+    © 2026 All rights reserved.
+  </p>
+
+</footer>
+
+
+<script>
+
+  const form =
+    document.getElementById("loanForm");
+
+  const result =
+    document.getElementById("result");
+
+
+  form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    result.style.display = "block";
+
+    result.scrollIntoView({
+      behavior: "smooth"
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
